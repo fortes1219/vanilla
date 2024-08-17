@@ -9,7 +9,7 @@ cd dist
 git init 
 git add -A
 git commit -m 'deploy'
-# 佈署到https://github.com/Chiapei-Chen/vite_vanilla.git
-git push -f https://github.com/Chiapei-Chen/vite_vanilla.git master:gh-pages
+# 佈署到https://github.com/Chiapei-Chen/vanilla.git
+git push -f https://github.com/Chiapei-Chen/vanilla.git master:gh-pages
 # 將dist資料夾中的內容推送至遠端的gh-pages分支中，並強制將舊有的內容取代成目前的內容（指令 git push -f)
 cd -
