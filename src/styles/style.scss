@@ -104,3 +104,35 @@ ul.keyword {
     }
   }
 }
+
+.infinity-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 180px;
+
+  li {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+      background-color: #444;
+      & > ul {
+        display: block;
+      }
+    }
+    ul {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-width: 150px;
+      background-color: #333;
+    }
+  }
+}
