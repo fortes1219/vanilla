@@ -35,6 +35,8 @@
 // BEM命名: Block__Element--Modifier
 
 .product-card {
+  // 確保mixin使用的位置在所有CSS宣告的最前面，避免巢狀規則之後有宣告
+  @include flexListItem(4, 1, 'rem');
   width: auto;
   padding: 1rem;
   border: 1px solid #CCC;
@@ -98,7 +100,4 @@
       background-color: #00A4C4;
     }
   }
-
-  // 確保mixin使用的位置在所有CSS宣告的最前面，避免巢狀規則之後有宣告
-  @include flexListItem(4, 1, 'rem');
 }
