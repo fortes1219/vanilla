@@ -26,6 +26,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         news: resolve(__dirname, "news.html"),
         products: resolve(__dirname, "products.html"),
+        gridProducts: resolve(__dirname, "grid-products.html"),
       },
       output: {
         /* 
