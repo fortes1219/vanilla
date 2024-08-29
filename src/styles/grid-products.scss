@@ -1,0 +1,98 @@
+.grid-product-list {
+  display: grid;
+  // grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
+.grid-product-card {
+  width: auto;
+  padding: 1rem;
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  background: base.$card-bg-color;
+  cursor: pointer;
+  
+  &--active {
+    background: var(--card-bg-color-active);
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 1rem;
+    margin: 0.8rem 0;
+    color: #ccc;
+    min-height: 48px;
+    // 限制兩行後ellipsis，也就是變成"..."
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__price {
+    font-size: 1.2rem;
+    color: rgb(255, 211, 145);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    // 使用 &{} 包裹巢狀規則後的宣告，避免行為變化
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.cart {
+      background-color: #00BFC4;
+    }
+
+    &.purchase {
+      background-color: #00A4C4;
+    }
+  }
+}
+
+// @media screen and (max-width: 1150px) {
+//   .grid-product-list {
+//     grid-template-columns: auto auto auto auto;
+//   }
+// }
+
+// @media screen and (max-width: 900px) {
+//   .grid-product-list {
+//     grid-template-columns: auto auto auto;
+//   }
+// }
+
+// @media screen and (max-width: 768px) {
+//   .grid-product-list {
+//     grid-template-columns: auto auto;
+//   }
+// }
+
+// @media screen and (max-width: 480px) {
+//   .grid-product-list {
+//     grid-template-columns: auto;
+//   }
+// }
+

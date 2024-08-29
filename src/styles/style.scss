@@ -1,3 +1,5 @@
+@use "variables.scss" as base;
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -16,6 +18,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --card-bg-color: rgba(255, 255, 255, 0.2);
+  --card-bg-color-active: rgba(255, 255, 255, 0.4);
 }
 
 .menu {
