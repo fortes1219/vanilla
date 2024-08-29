@@ -1,31 +1,56 @@
+@use "sass:math";
+
+@mixin flexListItem($rows, $margin, $unit) {
+  // 使用 math.div 進行除法計算
+  $mod: math.div(math.div(100, $rows), 100);
+  
+  // 修改width計算，將運算移到calc()內部進行
+  width: calc((100% / #{$rows}) - (#{$margin + $unit}) + (#{$margin} * #{$mod + $unit}));
+  
+  // 將這些宣告移到巢狀規則之前
+  margin-right: #{$margin + $unit};
+  margin-bottom: #{$margin + $unit};
+
+  &:nth-child(#{$rows}n) {
+    margin-right: 0;
+  }
+}
 
 .container.products {
   max-width: 1300px;
 }
+
 .product-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 1rem;
+  &::after {
+    content: '';
+    display: flex;
+    flex: 1;
+  }
 }
 
 // BEM命名: Block__Element--Modifier
 
 .product-card {
-  width: 240px;
+  width: auto;
   padding: 1rem;
-  margin-bottom: 1rem;
   border: 1px solid #CCC;
   border-radius: 6px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
+
   &--active {
     background: rgba(255, 255, 255, 0.4);
   }
+
   &__img {
     width: 100%;
   }
+
   &__name {
     font-size: 1rem;
     margin: 0.8rem 0;
@@ -37,15 +62,18 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
   &__price {
     font-size: 1.2rem;
     color: rgb(255, 211, 145);
   }
+
   &__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   &__button {
     display: block;
     width: 100%;
@@ -56,14 +84,21 @@
     border-radius: 4px;
     font-size: 0.85rem;
     cursor: pointer;
+
+    // 使用 &{} 包裹巢狀規則後的宣告，避免行為變化
     &:last-child {
       margin-right: 0;
     }
+
     &.cart {
       background-color: #00BFC4;
     }
+
     &.purchase {
       background-color: #00A4C4;
     }
   }
+
+  // 確保mixin使用的位置在所有CSS宣告的最前面，避免巢狀規則之後有宣告
+  @include flexListItem(4, 1, 'rem');
 }
