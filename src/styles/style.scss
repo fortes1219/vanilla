@@ -13,7 +13,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #333;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,6 +44,45 @@
         color: #f90;
       }
     }
+  }
+  .mobile-menu__btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    background: url('img/mobile_menu_btn.svg') no-repeat center center;
+    background-size: 24px;
+  }
+}
+
+.mobile-menu__mask {
+  display: none;
+  position: fixed;
+  z-index: 98;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  &.is-open {
+    display: block;
+  }
+}
+
+.mobile-menu__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  width: 300px;
+  height: 100%;
+  background: #121212;
+  transform: translateX(100%);
+  // transition: all 300ms cubic-bezier(1.000, 0.000, 0.000, 1.000);
+  &.is-open {
+    transform: translateX(0);
+    transition: all 300ms cubic-bezier(1.000, 0.000, 0.000, 1.000);
   }
 }
 
